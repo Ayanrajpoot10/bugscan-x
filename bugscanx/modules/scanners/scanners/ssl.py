@@ -27,7 +27,7 @@ class SSLScannerBase(BaseScanner):
         try:
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as socket_client:
                 socket_client.settimeout(2)
-                socket_client.connect((sni, 443))
+                socket_client.connect(("m.google.com", 443))
                 context = ssl.SSLContext(self.tls_version)
                 with context.wrap_socket(
                     socket_client,
